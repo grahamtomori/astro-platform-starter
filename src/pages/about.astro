@@ -1,40 +1,40 @@
 ---
+// No frontmatter needed unless you plan to import components or use Astro data
 ---
+
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About - Graham Tomori</title>
-    <link rel="stylesheet" href="/src/styles/global.css" />
-  </head>
-  <body class="font-sans">
-    <!-- Navbar -->
-    <nav class="fixed top-0 left-0 w-full bg-white shadow z-50">
-      <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-        <a href="/" class="text-xl font-bold">Graham Tomori</a>
-        <div class="space-x-6">
-          <a href="/" class="hover:text-blue-500">Home</a>
-          <a href="/about/" class="hover:text-blue-500">About</a>
-          <a href="/projects/" class="hover:text-blue-500">Projects</a>
-          <a href="/contact/" class="hover:text-blue-500">Contact</a>
-        </div>
-      </div>
-    </nav>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>About - Graham Tomori</title>
+        <link rel="stylesheet" href="/src/styles/global.css" />
+    </head>
+    <body class="font-sans">
+        <!-- Navbar -->
+        <nav class="fixed top-0 left-0 w-full bg-white shadow z-50">
+            <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+                <a href="/" class="text-xl font-bold">Graham Tomori</a>
+                <div class="space-x-6">
+                    <a href="/" class="hover:text-blue-500">Home</a>
+                    <a href="/about" class="hover:text-blue-500">About</a>
+                    <a href="/projects" class="hover:text-blue-500">Projects</a>
+                    <a href="/contact" class="hover:text-blue-500">Contact</a>
+                </div>
+            </div>
+        </nav>
 
-    <!-- Hero Section -->
-    <section class="h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-purple-600">
-      <h1 class="text-5xl font-extrabold text-white text-center">
-        About Me
-      </h1>
-    </section>
-
-    <!-- About Section -->
-    <section class="py-24 max-w-4xl mx-auto px-6">
-      <h2 class="text-3xl font-bold mb-6">About Me</h2>
-      <p class="text-lg leading-relaxed">
-        Hi! My name is Graham Tomori, and I’m a Freshman at Butler University studying International Business. I’m passionate about geopolitics,
-        economics, and building solutions for developing nations.
-      </p>
-    </section>
-  </body>
+        <!-- About Section -->
+        <section class="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-purple-600 pt-20">
+            <div class="max-w-4xl bg-white rounded-xl shadow-lg p-10 text-gray-800">
+                <h1 class="text-4xl font-bold mb-6 text-center">About Me</h1>
+                <p class="text-lg leading-relaxed mb-4">
+                    Hi! My name is Graham Tomori, and I’m a Freshman at Butler University studying International Business. I’m passionate about geopolitics,
+                    economics, and building solutions for developing nations.
+                </p>
+                <p class="text-lg leading-relaxed">
+                    In my free time, I enjoy learning new programming skills, experimenting with web design, and tracking my progress in long-distance running.
+                </p>
+            </div>
+        </section>
+    </body>
 </html>
