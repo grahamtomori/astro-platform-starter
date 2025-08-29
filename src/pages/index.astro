@@ -9,57 +9,61 @@ import '../styles/global.css';
         <title>Graham Tomori</title>
     </head>
 
-    <body class="font-sans bg-[#2B1B10] text-white">
+    <body class="font-sans bg-gray-100">
         <!-- Navbar -->
-        <nav class="fixed top-0 left-0 w-full bg-[#3A2C1F] shadow z-50">
-            <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-                <a href="#home" class="text-xl font-bold text-green-200">Graham Tomori</a>
+        <nav class="fixed top-0 left-0 w-full bg-[#3b2f2f] shadow-md z-50">
+            <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center text-gray-100">
+                <a href="/" class="text-xl font-bold hover:text-[#c4b78b]">Graham Tomori</a>
                 <div class="space-x-6">
-                    <a href="/about" class="hover:text-green-400">About</a>
-                    <a href="/projects" class="hover:text-green-400">Projects</a>
-                    <a href="/contact" class="hover:text-green-400">Contact</a>
+                    <a href="/about" class="hover:text-[#c4b78b]">About</a>
+                    <a href="/projects" class="hover:text-[#c4b78b]">Projects</a>
+                    <a href="/contact" class="hover:text-[#c4b78b]">Contact</a>
                 </div>
             </div>
         </nav>
 
         <!-- Hero Section -->
-        <section id="home" class="min-h-screen flex items-center justify-center bg-[url('/images/rockefeller-god-3.jpg')] bg-cover bg-center relative">
-            <div class="bg-[#1E3B2F] bg-opacity-80 p-10 rounded-2xl text-left mt-36 ml-24 max-w-3xl">
-                <h1 class="text-5xl font-bold text-green-200 mb-6">Welcome to My Site</h1>
-                <p class="text-lg text-green-100">This is where you can add your homepage introduction or tagline.</p>
+        <section id="home" class="min-h-screen flex items-center justify-end bg-[url('/images/rockefeller-god-3.jpg')] bg-cover bg-center relative">
+            <div class="bg-[#3b2f2f] bg-opacity-75 p-12 rounded-3xl text-right mr-24 mt-24 max-w-lg">
+                <h1 class="text-5xl font-serif text-[#e0d8c3] mb-6">Welcome to My Site</h1>
+                <p class="text-lg text-[#dcd2c0] leading-relaxed">
+                    Exploring global business, international relations, and innovative solutions for nation development.
+                </p>
             </div>
         </section>
 
         <!-- About Section -->
-        <section id="about" class="py-24 max-w-4xl mx-auto px-6 bg-[#2B1B10]">
-            <h2 class="text-3xl font-bold mb-6 text-green-200">About Me</h2>
-            <p class="text-lg leading-relaxed text-green-100">
-                Hi! My name is Graham Tomori, and I’m a Freshman at Butler University studying International Business. I’m passionate about geopolitics,
-                economics, and building solutions for developing nations.
-            </p>
+        <section id="about" class="py-24 bg-[#d9c8b3]">
+            <div class="max-w-4xl mx-auto px-6">
+                <h2 class="text-3xl font-serif font-bold mb-6 text-[#3b2f2f]">About Me</h2>
+                <p class="text-lg leading-relaxed text-[#3b2f2f]">
+                    Hi! I’m Graham Tomori, a Freshman at Butler University studying International Business. Passionate about geopolitics, economics, and
+                    building strategies to rejuvenate developing nations.
+                </p>
+            </div>
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="py-24 bg-[#3A2C1F]">
+        <section id="projects" class="py-24 bg-[#f2efe7] rounded-2xl shadow-md">
             <div class="max-w-5xl mx-auto px-6">
-                <h2 class="text-3xl font-bold mb-6 text-green-200">Projects</h2>
+                <h2 class="text-3xl font-serif font-bold mb-6 text-[#3b2f2f]">Projects</h2>
                 <div class="grid md:grid-cols-2 gap-8">
-                    <div class="p-6 bg-[#1E3B2F] rounded-xl shadow hover:shadow-lg transition text-green-100">
-                        <strong>Project 1</strong> – A showcase of web development, research, or international business initiatives.
+                    <div class="p-6 bg-[#e6ddd1] rounded-xl shadow hover:shadow-lg transition">
+                        <strong>MOCKIMFPROJECT</strong> – Think tank simulation exploring global economics and policy.
                     </div>
-                    <div class="p-6 bg-[#1E3B2F] rounded-xl shadow hover:shadow-lg transition text-green-100">
-                        <strong>Project 2</strong> – Another example of your work or case studies on nation development.
+                    <div class="p-6 bg-[#e6ddd1] rounded-xl shadow hover:shadow-lg transition">
+                        <strong>Personal Website</strong> – Built with Astro + Tailwind for professional presentation.
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="py-24 max-w-4xl mx-auto px-6 bg-[#2B1B10]">
-            <h2 class="text-3xl font-bold mb-6 text-green-200">Contact</h2>
-            <p class="text-green-100">
-                Email: <a href="mailto:graham@example.com" class="text-green-300">graham@example.com</a>
-            </p>
+        <section id="contact" class="py-24 bg-[#7a8465]">
+            <div class="max-w-4xl mx-auto px-6 text-[#f0f0e8]">
+                <h2 class="text-3xl font-serif font-bold mb-6">Contact</h2>
+                <p>Email: <a href="mailto:graham@example.com" class="text-[#dcd2c0] hover:underline">graham@example.com</a></p>
+            </div>
         </section>
     </body>
 </html>
