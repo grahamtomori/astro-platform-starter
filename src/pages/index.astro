@@ -1,21 +1,58 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import ContextAlert from '../components/ContextAlert.astro';
-import Markdown from '../components/Markdown.astro';
 
-const explainer = `
-Hi! My name is Graham Tomori and I am a Freshman at Butler University studying International Business!
-
-Netlify supports not only [Streaming SSR](https://docs.astro.build/en/guides/server-side-rendering/#html-streaming) and fast [Edge Middleware](https://docs.astro.build/en/guides/middleware/), but also [on-demand revalidation](https://www.netlify.com/blog/cache-tags-and-purge-api-on-netlify/) and [stale-while-revalidate](https://www.netlify.com/blog/swr-and-fine-grained-cache-control/). 
-Any page or data can be rebuilt only when needed, without site visitors ever getting a performance hit.
-`;
 ---
 
-<Layout title="Welcome to Astro.">
-    <ContextAlert class="mb-8" />
-    <h1 class="mb-10">Welcome!</h1>
-    <Markdown content={explainer} class="mb-10 text-lg" />
-    <p>
-        <a href="https://docs.netlify.com/frameworks/astro/" class="btn btn-lg sm:min-w-64">Read the Docs</a>
-    </p>
-</Layout>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Graham Tomori</title>
+        <link rel="stylesheet" href="/src/styles/global.css" />
+    </head>
+    <body class="font-sans">
+        <!-- Navbar -->
+        <nav class="fixed top-0 left-0 w-full bg-white shadow z-50">
+            <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+                <a href="#home" class="text-xl font-bold">Graham Tomori</a>
+                <div class="space-x-6">
+                    <a href="#about" class="hover:text-blue-500">About</a>
+                    <a href="#projects" class="hover:text-blue-500">Projects</a>
+                    <a href="#contact" class="hover:text-blue-500">Contact</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section id="home" class="h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-purple-600">
+            <h1 class="text-5xl font-extrabold text-white text-center">
+                Hi, I’m Graham<br />Freshman at Butler University
+            </h1>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-24 max-w-4xl mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-6">About Me</h2>
+            <p class="text-lg leading-relaxed">
+                Hi! My name is Graham Tomori, and I’m a Freshman at Butler University studying International Business. I’m passionate about geopolitics,
+                economics, and building solutions for developing nations.
+            </p>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-24 bg-gray-100">
+            <div class="max-w-5xl mx-auto px-6">
+                <h2 class="text-3xl font-bold mb-6">Projects</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition">Project 1</div>
+                    <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition">Project 2</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 max-w-4xl mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-6">Contact</h2>
+            <p>Email: <a href="mailto:graham@example.com" class="text-blue-500">graham@example.com</a></p>
+        </section>
+    </body>
+</html>
