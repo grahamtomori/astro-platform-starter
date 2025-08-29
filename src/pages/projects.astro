@@ -6,37 +6,37 @@ import '../styles/global.css';
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Projects - Graham Tomori</title>
+        <title>Projects | Graham Tomori</title>
     </head>
 
-    <body class="font-sans bg-gray-50">
+    <body class="font-sans bg-[#cfc6b8] text-[#3b2f2f]">
         <!-- Navbar -->
-        <nav class="fixed top-0 left-0 w-full bg-white shadow z-50">
-            <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-                <a href="/" class="text-xl font-bold">Graham Tomori</a>
+        <nav class="fixed top-0 left-0 w-full bg-[#3b2f2f] shadow-md z-50">
+            <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center text-gray-100">
+                <a href="/" class="text-xl font-bold hover:text-[#c4b78b]">Graham Tomori</a>
                 <div class="space-x-6">
-                    <a href="/" class="hover:text-blue-500">Home</a>
-                    <a href="/about" class="hover:text-blue-500">About</a>
-                    <a href="/projects" class="hover:text-blue-500 font-semibold">Projects</a>
-                    <a href="/contact" class="hover:text-blue-500">Contact</a>
+                    <a href="/about" class="hover:text-[#c4b78b]">About</a>
+                    <a href="/projects" class="hover:text-[#c4b78b]">Projects</a>
+                    <a href="/contact" class="hover:text-[#c4b78b]">Contact</a>
                 </div>
             </div>
         </nav>
 
-        <!-- Projects Section -->
-        <section class="min-h-screen flex items-center justify-center bg-gradient-to-r from-black to-white pt-24">
-            <div class="max-w-4xl bg-white rounded-xl shadow-lg p-10 text-gray-800">
-                <h1 class="text-4xl font-bold mb-6 text-center">Projects</h1>
-                <p class="text-lg leading-relaxed mb-4">
-                    Here are some of the projects I’ve been working on recently. These include web development, research, and initiatives focused on
-                    international business and nation development.
-                </p>
-                <ul class="list-disc list-inside space-y-2">
-                    <li><strong>MOCKIMFPROJECT</strong> – A think tank simulation exploring global economics and policy.</li>
-                    <li><strong>Personal Website</strong> – This site, built with Astro + Tailwind.</li>
-                    <li><strong>Development Case Studies</strong> – Research into rebuilding post-conflict nations.</li>
-                </ul>
+        <!-- Main Projects Content -->
+        <main class="pt-32 pb-24 max-w-5xl mx-auto px-6">
+            <h1 class="text-4xl font-serif font-bold mb-10">Projects</h1>
+
+            <div class="grid md:grid-cols-2 gap-10">
+                <div class="p-6 bg-[#e6ddd1] rounded-xl shadow hover:shadow-lg transition">
+                    <h2 class="text-xl font-semibold mb-3">MOCKIMFPROJECT</h2>
+                    <p>A simulated think tank exploring economic recovery strategies, development policy, and geopolitical frameworks.</p>
+                </div>
+
+                <div class="p-6 bg-[#e6ddd1] rounded-xl shadow hover:shadow-lg transition">
+                    <h2 class="text-xl font-semibold mb-3">Personal Website</h2>
+                    <p>Built with Astro + Tailwind CSS to showcase international business work, development research, and personal projects.</p>
+                </div>
             </div>
-        </section>
+        </main>
     </body>
 </html>
