@@ -1,0 +1,68 @@
+---
+import '../styles/global.css';
+---
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Resume - Graham Tomori</title>
+    </head>
+
+    <body class="font-sans bg-[#3B2F2F]">
+        <!-- Navbar -->
+        <nav class="fixed top-0 left-0 w-full bg-[#3B2F2F] shadow-md z-50">
+            <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center text-gray-100">
+                <div class="flex items-center space-x-4">
+                    <div>
+                        <a href="/" class="text-xl font-bold hover:text-[#c4b78b] block">Graham Tomori</a>
+                        <span class="text-sm text-gray-300">Curiosity in Motion</span>
+                    </div>
+                </div>
+                <div class="space-x-6">
+                    <a href="/" class="hover:text-[#c4b78b]">Home</a>
+                    <a href="/about" class="hover:text-[#c4b78b]">About</a>
+                    <a href="/projects" class="hover:text-[#c4b78b]">Projects</a>
+                    <a href="/resume" class="hover:text-[#c4b78b] font-bold">Resume</a>
+                    <a href="/contact" class="hover:text-[#c4b78b]">Contact</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Resume Section -->
+        <section class="min-h-screen flex items-center justify-center pt-24 px-6">
+            <div class="bg-white shadow-lg rounded-xl w-full max-w-4xl p-12">
+                <h1 class="text-4xl font-serif font-bold mb-8 text-[#3B2F2F] text-center">Graham Tomori</h1>
+
+                <!-- Resume Content Example -->
+                <div class="space-y-6 text-[#3B2F2F] text-lg leading-relaxed">
+                    <div>
+                        <h2 class="text-2xl font-semibold mb-2">Education</h2>
+                        <p>Butler University (Fall 2025 – ) – International Business</p>
+                    </div>
+
+                    <div>
+                        <h2 class="text-2xl font-semibold mb-2">Experience</h2>
+                        <p>Founder – MOCKIMFPROJECT: Social media & think tank content on global development and economics.</p>
+                    </div>
+
+                    <div>
+                        <h2 class="text-2xl font-semibold mb-2">Skills</h2>
+                        <ul class="list-disc ml-6">
+                            <li>Development Economics</li>
+                            <li>Geopolitical Analysis</li>
+                            <li>Web Development (Astro + Tailwind)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-[#3b2f2f] text-gray-100 py-6 mt-12">
+            <div class="max-w-6xl mx-auto px-6 text-center">
+                &copy; {new Date().getFullYear()} Graham Tomori. All rights reserved.
+            </div>
+        </footer>
+    </body>
+</html>
