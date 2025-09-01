@@ -11,19 +11,20 @@ import '../styles/global.css';
 
     <body class="font-sans bg-[#3B2F2F]">
         <!-- Navbar -->
-        <nav class="fixed top-0 left-0 w-full bg-[#3B2F2F] shadow-md z-50">
-            <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center text-gray-100">
-                <div class="flex items-center space-x-4">
-                    <div>
-                        <a href="/" class="text-xl font-bold hover:text-[#c4b78b] block">Graham Tomori</a>
-                        <span class="text-sm text-gray-300">Curiosity in Motion</span>
-                    </div>
+        <nav class="fixed top-0 left-0 w-full bg-[#3b2f2f] shadow-md z-50">
+            <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center text-white">
+                <!-- Left: Name + tagline -->
+                <div>
+                    <a href="/" class="block text-xl font-bold hover:text-[#c4b78b]">Graham Tomori</a>
+                    <span class="block text-sm italic text-gray-300">Curiosity in Motion</span>
                 </div>
+
+                <!-- Right: Links -->
                 <div class="space-x-6">
                     <a href="/" class="hover:text-[#c4b78b]">Home</a>
                     <a href="/about" class="hover:text-[#c4b78b]">About</a>
                     <a href="/projects" class="hover:text-[#c4b78b]">Projects</a>
-                    <a href="/resume" class="hover:text-[#c4b78b] font-bold">Resume</a>
+                    <a href="/resume" class="hover:text-[#c4b78b] font-bold text-[#c4b78b]">Resume</a>
                     <a href="/contact" class="hover:text-[#c4b78b]">Contact</a>
                 </div>
             </div>
@@ -31,29 +32,82 @@ import '../styles/global.css';
 
         <!-- Resume Section -->
         <section class="min-h-screen flex items-center justify-center pt-24 px-6">
-            <div class="bg-white shadow-lg rounded-xl w-full max-w-4xl p-12">
-                <h1 class="text-4xl font-serif font-bold mb-8 text-[#3B2F2F] text-center">Graham Tomori</h1>
+            <div class="bg-white shadow-lg rounded-xl w-full max-w-4xl p-12 leading-relaxed text-[#3B2F2F]">
+                <!-- Header -->
+                <h1 class="text-4xl font-serif font-bold mb-2 text-center text-[#3B2F2F]">Graham Tomori</h1>
+                <p class="text-center mb-6">
+                    44 Forest Hill Rd · St. Catharines, ON · (289) 969-3371 ·
+                    <a href="mailto:grahamtomori10@gmail.com" class="text-[#3B2F2F] underline">grahamtomori10@gmail.com</a>
+                </p>
 
-                <!-- Resume Content Example -->
-                <div class="space-y-6 text-[#3B2F2F] text-lg leading-relaxed">
-                    <div>
-                        <h2 class="text-2xl font-semibold mb-2">Education</h2>
-                        <p>Butler University (Fall 2025 – ) – International Business</p>
-                    </div>
+                <!-- Experience -->
+                <div class="mb-8">
+                    <h2 class="text-2xl font-bold mb-4">Experience</h2>
+                    <ul class="space-y-4 list-disc ml-6">
+                        <li>
+                            <strong>Glenridge Lawn Service — Entrepreneur</strong> (Summer 2021). Founded small business; video ads, yard work, landscaping.
+                        </li>
+                        <li>
+                            <strong>DECA Business Competition — Competitor</strong> (Winter 2022–Current). Advanced to provincials; honed business/marketing roleplay.
+                        </li>
+                        <li>
+                            <strong>Niagara Games Soccer Dept — Volunteer</strong> (Summer 2022). Assisted at Youngs Sportsplex; engaged with athletes/coaches nationwide.
+                        </li>
+                        <li>
+                            <strong>Clifton Niagara Group — Sales Associate</strong> (Spring 2023–Current). High-volume tourist sales; top performer; repeat seasonal
+                            hire.
+                        </li>
+                        <li>
+                            <strong>Now for Net Zero — Steering Committee</strong> (Fall 2024). Reviewed 60+ national grants ($25k max); advised funding allocations.
+                        </li>
+                        <li>
+                            <strong>ARI Scholarship Recipient</strong> (Spring 2025). Fully funded trip to Austin, TX; seminars on philosophy, business, and life
+                            approaches.
+                        </li>
+                    </ul>
+                </div>
 
-                    <div>
-                        <h2 class="text-2xl font-semibold mb-2">Experience</h2>
-                        <p>Founder – MOCKIMFPROJECT: Social media & think tank content on global development and economics.</p>
-                    </div>
+                <!-- Education -->
+                <div class="mb-8">
+                    <h2 class="text-2xl font-bold mb-4">Education</h2>
+                    <ul class="space-y-4 list-disc ml-6">
+                        <li><strong>Wheatley Montessori School</strong> (2009–2021). IB program; A+ average; ADHD research project & site.</li>
+                        <li>
+                            <strong>Eden High School</strong> (2021–2025). Honor Roll; DECA; OFSAA medals (squash, track, cross country); accelerated academics.
+                        </li>
+                        <li><strong>Butler University</strong> (2025–). B.A. International Business; NCAA finalist (5000m/10,000m).</li>
+                    </ul>
+                </div>
 
-                    <div>
-                        <h2 class="text-2xl font-semibold mb-2">Skills</h2>
-                        <ul class="list-disc ml-6">
-                            <li>Development Economics</li>
-                            <li>Geopolitical Analysis</li>
-                            <li>Web Development (Astro + Tailwind)</li>
-                        </ul>
-                    </div>
+                <!-- Sports & Extracurricular -->
+                <div class="mb-8">
+                    <h2 class="text-2xl font-bold mb-4">Sports & Extracurricular</h2>
+                    <ul class="space-y-4 list-disc ml-6">
+                        <li><strong>Edge Swimming Club</strong> (2022–). Early morning training; CPR/safety certified.</li>
+                        <li>
+                            <strong>Edge Running Club</strong> (2022–). 2025 U18 Canadian national champions (team); fastest 3000m U18 Canada (2024). Recruited by
+                            75+ universities.
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Awards & Hobbies -->
+                <div class="mb-8">
+                    <h2 class="text-2xl font-bold mb-4">Awards & Hobbies</h2>
+                    <ul class="space-y-4 list-disc ml-6">
+                        <li>Grants/scholarships exceeding $250,000.</li>
+                        <li>Ontario Power Generation award (solar research).</li>
+                        <li>Short story competitions (>$500 earnings).</li>
+                        <li>Page program acceptance — Ontario Legislature.</li>
+                        <li>Avid investor; personal best +15% in a week.</li>
+                        <li>Extensive travel across Canada, U.S., Europe.</li>
+                    </ul>
+                </div>
+
+                <!-- References -->
+                <div class="mb-4">
+                    <h2 class="text-2xl font-bold mb-4">References</h2>
+                    <p>Available upon request.</p>
                 </div>
             </div>
         </section>
