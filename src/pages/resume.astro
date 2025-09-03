@@ -1,37 +1,41 @@
 ---
 import '../styles/global.css';
+const year = new Date().getFullYear();
 ---
 
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Resume - Graham Tomori</title>
+        <title>Resume | Graham Tomori</title>
     </head>
 
-    <body class="font-sans bg-[#3B2F2F]">
+    <body class="font-sans bg-[#3B2F2F] text-gray-100">
         <!-- Navbar -->
         <nav class="fixed top-0 left-0 w-full bg-[#3b2f2f] shadow-md z-50">
-            <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center text-white">
-                <!-- Left: Name + tagline -->
-                <div>
-                    <a href="/" class="block text-xl font-bold hover:text-[#c4b78b]">Graham Tomori</a>
-                    <span class="block text-sm italic text-gray-300">Curiosity in Motion</span>
+            <div class="flex justify-between items-center text-white w-full pl-3">
+                <!-- Logo + Name + Tagline -->
+                <div class="flex items-center space-x-3">
+                    <img src="/images/stretched-globe-csa-images.png" alt="Globe Logo" class="h-16 w-auto object-contain relative top-0.5" />
+                    <div class="flex flex-col justify-center">
+                        <span class="text-xl font-bold text-gray-100">Graham Tomori</span>
+                        <span class="text-sm italic text-gray-300">Curiosity in Motion</span>
+                    </div>
                 </div>
 
-                <!-- Right: Links -->
-                <div class="space-x-6">
+                <!-- Links -->
+                <div class="space-x-6 mr-6">
                     <a href="/" class="hover:text-[#c4b78b]">Home</a>
                     <a href="/about" class="hover:text-[#c4b78b]">About</a>
                     <a href="/projects" class="hover:text-[#c4b78b]">Projects</a>
-                    <a href="/resume" class="hover:text-[#c4b78b] font-bold text-[#c4b78b]">Resume</a>
+                    <a href="/resume" class="hover:text-[#c4b78b] font-bold">Resume</a>
                     <a href="/contact" class="hover:text-[#c4b78b]">Contact</a>
                 </div>
             </div>
         </nav>
 
         <!-- Resume Section -->
-        <section class="min-h-screen flex items-center justify-center pt-24 px-6">
+        <section class="min-h-screen flex items-center justify-center pt-32 px-6">
             <div class="bg-white shadow-lg rounded-xl w-full max-w-4xl p-12 leading-relaxed text-[#3B2F2F]">
                 <!-- Header -->
                 <h1 class="text-4xl font-serif font-bold mb-2 text-center text-[#3B2F2F]">Graham Tomori</h1>
@@ -115,7 +119,7 @@ import '../styles/global.css';
         <!-- Footer -->
         <footer class="bg-[#3b2f2f] text-gray-100 py-6 mt-12">
             <div class="max-w-6xl mx-auto px-6 text-center">
-                &copy; {new Date().getFullYear()} Graham Tomori. All rights reserved.
+                &copy; {year} Graham Tomori. All rights reserved.
             </div>
         </footer>
     </body>

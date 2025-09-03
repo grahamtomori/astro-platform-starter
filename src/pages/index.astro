@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+const year = new Date().getFullYear();
 ---
 
 <html lang="en">
@@ -12,18 +13,18 @@ import '../styles/global.css';
     <body class="font-sans bg-gray-100">
         <!-- Navbar -->
         <nav class="fixed top-0 left-0 w-full bg-[#3b2f2f] shadow-md z-50">
-            <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center text-white">
+            <div class="flex justify-between items-center text-white w-full pl-3">
                 <!-- Logo + Name + Tagline -->
                 <div class="flex items-center space-x-3">
-                    <img src="/images/stretched-globe-csa-images.png" alt="Globe Logo" class="h-10 w-auto object-contain" />
-                    <div>
-                        <span class="block text-xl font-bold text-gray-100">Graham Tomori</span>
-                        <span class="block text-sm italic text-gray-300">Curiosity in Motion</span>
+                    <img src="/images/stretched-globe-csa-images.png" alt="Globe Logo" class="h-16 w-auto object-contain relative top-0.5" />
+                    <div class="flex flex-col justify-center">
+                        <span class="text-xl font-bold text-gray-100">Graham Tomori</span>
+                        <span class="text-sm italic text-gray-300">Curiosity in Motion</span>
                     </div>
                 </div>
 
                 <!-- Links -->
-                <div class="space-x-6">
+                <div class="space-x-6 mr-6">
                     <a href="/about" class="hover:text-[#c4b78b]">About</a>
                     <a href="/projects" class="hover:text-[#c4b78b]">Projects</a>
                     <a href="/resume" class="hover:text-[#c4b78b]">Resume</a>
@@ -143,11 +144,11 @@ import '../styles/global.css';
             </div>
         </section>
     </body>
-</html>
 
-<!-- Footer -->
-<footer class="bg-[#3b2f2f] text-gray-100 py-6">
-    <div class="max-w-6xl mx-auto px-6 text-center">
-        &copy; {new Date().getFullYear()} Graham Tomori. All rights reserved.
-    </div>
-</footer>
+    <!-- Footer -->
+    <footer class="bg-[#3b2f2f] text-gray-100 py-6">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            &copy; {year} Graham Tomori. All rights reserved.
+        </div>
+    </footer>
+</html>
