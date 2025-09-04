@@ -8,6 +8,7 @@ const year = new Date().getFullYear();
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Contact | Graham Tomori</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     </head>
 
     <body class="font-sans bg-gray-100 text-gray-100">
@@ -36,18 +37,38 @@ const year = new Date().getFullYear();
         <!-- Contact Content -->
         <section class="pt-40 pb-24 bg-[#7a8465] min-h-screen">
             <div class="max-w-4xl mx-auto px-6 text-[#f0f0e8]">
-                <h1 class="text-4xl font-serif font-bold mb-8">Get in Touch</h1>
-                <p class="text-lg mb-4">I’m always open to connecting with people passionate about global development, economics, or international business.</p>
+                <h1 class="text-4xl font-serif font-bold mb-4">Get in Touch</h1>
+                <p class="text-lg mb-10 italic">Let’s build something meaningful together.</p>
 
-                <div class="space-y-4 text-lg">
-                    <p>
-                        📧 Email:
-                        <a href="mailto:contactgrahamtomori10@gmail.com" class="text-[#dcd2c0] hover:underline"> contactgrahamtomori10@gmail.com </a>
+                <!-- Contact Card -->
+                <div class="bg-[#3b2f2f] rounded-2xl shadow-lg p-8 space-y-6">
+                    <p class="flex items-center text-lg">
+                        <i class="fa-solid fa-envelope mr-3 text-[#dcd2c0]"></i>
+                        <a href="mailto:contactgrahamtomori@gmail.com" class="text-[#dcd2c0] hover:underline"> contactgrahamtomori@gmail.com </a>
                     </p>
-                    <p>
-                        📍 Address: Irvington House, Butler University<br />
-                        Mailbox #021
-                    </p>
+
+                    <div>
+                        <div class="flex items-center mb-2">
+                            <i class="fa-solid fa-map-marker-alt mr-3 text-[#dcd2c0]"></i>
+                            <span class="text-lg text-white">Mailing Address</span>
+                        </div>
+                        <address class="ml-7 text-white italic leading-relaxed">
+                            Graham Tomori<br />
+                            750 W Hampton Dr Box #021<br />
+                            Indianapolis, IN 46208<br />
+                            United States of America
+                        </address>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="flex space-x-6 pt-4">
+                        <a href="https://www.linkedin.com/in/graham-tomori-809038335/" target="_blank" rel="noopener noreferrer" class="hover:text-[#c4b78b]">
+                            <i class="fa-brands fa-linkedin text-2xl"></i>
+                        </a>
+                        <a href="https://github.com/grahamtomori" target="_blank" rel="noopener noreferrer" class="hover:text-[#c4b78b]">
+                            <i class="fa-brands fa-github text-2xl"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
