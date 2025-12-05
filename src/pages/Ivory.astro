@@ -7,10 +7,10 @@ const year = new Date().getFullYear();
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>About | Graham Tomori</title>
+        <title>Ivory | Graham Tomori</title>
     </head>
 
-    <body class="font-sans bg-[#cfc6b8] text-[#3b2f2f] flex flex-col min-h-screen">
+    <body class="font-sans bg-[#3B2F2F] text-gray-100 flex flex-col min-h-screen">
         <!-- Navbar -->
         <nav class="fixed top-0 left-0 w-full bg-[#3b2f2f] shadow-md z-50">
             <div class="flex justify-between items-center text-white w-full pl-3">
@@ -35,29 +35,37 @@ const year = new Date().getFullYear();
             </div>
         </nav>
 
-        <!-- Main About Content -->
-        <main class="flex-grow pt-40 pb-24 max-w-4xl mx-auto px-6">
-            <h1 class="text-4xl font-serif font-bold mb-6">About Me</h1>
-            <p class="leading-relaxed mb-4">
-                I’m Graham Tomori, a first year student of Political Science + Economics (Simultaneously studying Spanish) at Butler University. I have a
-                passion for nation development, rebuilding economies, and designing innovative frameworks for post-conflict recovery. My post-academic goals are
-                to pursue governmental consulting, eventually starting my own firm.
-            </p>
-            <p class="leading-relaxed mb-4">
-                This website serves as a public portfolio of my projects, writings, and research. I explore questions of political order, economic development,
-                and how nations can transition from instability to sustainable prosperity.
-            </p>
-            <p class="leading-relaxed">
-                Beyond academics, I’m a competitive distance runner, which weighed in heavily on my decision to choose Butler University, as it's consistantly
-                ranked as a top 15 program in NCAA divison one distance running. I am constantly chasing growth in both athletic and intellectual pursuits, a
-                reflection of my personal motto: <span class="italic">Curiosity in Motion</span>.
-            </p>
-        </main>
+        <!-- IVORY / Journal Content -->
+        <section class="min-h-screen flex items-center justify-center pt-32 px-6">
+            <div class="bg-white shadow-lg rounded-xl w-full max-w-4xl p-12 leading-relaxed text-[#3B2F2F]">
+                <!-- Header -->
+                <h1 class="text-4xl font-serif font-bold mb-6 text-center">Ivory</h1>
+
+                <!-- Your journal content starts here -->
+                <p class="leading-relaxed mb-4">
+                    This is the beginning of my journal space — a written extension of “Curiosity in Motion.” Here I’ll explore ideas, develop theories, map
+                    uncertainties, and refine my long-term intellectual frameworks.
+                </p>
+
+                <p class="leading-relaxed mb-4">
+                    These entries aren’t polished essays — they’re live thoughts, models in progress, research fragments, and the things I’m thinking through in
+                    real time.
+                </p>
+
+                <p class="leading-relaxed italic mb-6">(You can delete all this text and start writing your real entries.)</p>
+
+                <!-- Space for future entries -->
+                <div class="mt-10">
+                    <h2 class="text-2xl font-bold mb-4">Entries</h2>
+                    <p>No entries yet. Start writing above when ready.</p>
+                </div>
+            </div>
+        </section>
 
         <!-- Footer -->
         <footer class="bg-[#3b2f2f] text-gray-100 py-6 mt-auto">
             <div class="max-w-6xl mx-auto px-6 text-center">
-                &copy; {year} Graham Tomori. All rights reserved
+                &copy; {year} Graham Tomori. All rights reserved.
             </div>
         </footer>
     </body>
