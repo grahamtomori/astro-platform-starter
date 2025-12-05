@@ -10,7 +10,7 @@ const year = new Date().getFullYear();
         <title>Ivory | Graham Tomori</title>
     </head>
 
-    <body class="font-sans bg-[#cfc6b8] text-gray-100 flex flex-col min-h-screen">
+    <body class="font-sans bg-[#cfc6b8] text-gray-100 flex flex-col min-h-screen overflow-hidden">
         <!-- Navbar -->
         <nav class="fixed top-0 left-0 w-full bg-[#3b2f2f] shadow-md z-50">
             <div class="flex justify-between items-center text-white w-full pl-3">
@@ -35,8 +35,18 @@ const year = new Date().getFullYear();
             </div>
         </nav>
 
+        <!-- Category Tabs Strip -->
+        <div class="fixed top-20 left-0 w-full bg-[#cfc6b8] py-3 shadow-sm z-40">
+            <div class="flex justify-center space-x-10 text-[#3B2F2F] text-lg font-semibold">
+                <a href="/Ivory/Philosophy" class="hover:underline">Philosophy</a>
+                <a href="/Ivory/Economics" class="hover:underline">Economics</a>
+                <a href="/Ivory/Personal" class="hover:underline">Personal</a>
+                <a href="/Ivory/TBD" class="hover:underline">TBD</a>
+            </div>
+        </div>
+
         <!-- IVORY / Journal Content -->
-        <section class="min-h-screen flex items-center justify-center pt-32 px-6">
+        <section class="min-h-screen flex items-start justify-center pt-40 px-6">
             <div class="bg-white shadow-lg rounded-xl w-full max-w-4xl p-12 leading-relaxed text-[#3B2F2F]">
                 <!-- Header -->
                 <h1 class="text-4xl font-serif font-bold mb-6 text-center">Ivory</h1>
