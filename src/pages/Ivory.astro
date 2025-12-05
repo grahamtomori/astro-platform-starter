@@ -3,84 +3,22 @@ import '../styles/global.css';
 const year = new Date().getFullYear();
 ---
 
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Ivory | Graham Tomori</title>
-    </head>
+<!-- Navbar -->
+<nav class="fixed top-0 left-0 w-full bg-[#3b2f2f] shadow-md z-50">...</nav>
 
-    <body class="font-sans bg-[#cfc6b8] text-gray-100 flex flex-col min-h-screen overflow-auto">
-        <!-- Navbar -->
-        <nav class="fixed top-0 left-0 w-full bg-[#3b2f2f] shadow-md z-50">
-            <div class="flex justify-between items-center text-white w-full pl-3">
-                <!-- Logo + Name + Tagline -->
-                <div class="flex items-center space-x-3">
-                    <img src="/images/stretched-globe-csa-images.png" alt="Globe Logo" class="h-16 w-auto object-contain relative top-0.5" />
-                    <div class="flex flex-col justify-center">
-                        <span class="text-xl font-bold text-gray-100">Graham Tomori</span>
-                        <span class="text-sm italic text-gray-300">Curiosity in Motion</span>
-                    </div>
-                </div>
+<!-- Category Tabs Strip -->
+<div class="flex justify-center pt-36 px-6 z-40">
+    <div class="bg-white rounded-xl w-full max-w-4xl shadow-sm py-3">...</div>
+</div>
 
-                <!-- Links -->
-                <div class="space-x-6 mr-6">
-                    <a href="/" class="hover:text-[#c4b78b]">Home</a>
-                    <a href="/about" class="hover:text-[#c4b78b]">About</a>
-                    <a href="/projects" class="hover:text-[#c4b78b]">Projects</a>
-                    <a href="/Ivory" class="hover:text-[#c4b78b] font-bold">Ivory</a>
-                    <a href="/resume" class="hover:text-[#c4b78b]">Resume</a>
-                    <a href="/contact" class="hover:text-[#c4b78b]">Contact</a>
-                </div>
-            </div>
-        </nav>
+<!-- IVORY / Journal Content -->
+<section class="min-h-screen flex items-start justify-center pt-6 px-6">
+    <div class="bg-white shadow-lg rounded-xl w-full max-w-4xl p-12 leading-relaxed text-[#3B2F2F] mt-6">...</div>
+</section>
 
-        <!-- Category Tabs Strip -->
-        <div class="flex justify-center pt-36 px-6 z-40">
-            <div class="bg-white rounded-xl w-full max-w-4xl shadow-sm py-3">
-                <div class="flex justify-center space-x-10 text-[#3B2F2F] text-lg font-semibold">
-                    <a href="/Ivory/Philosophy" class="hover:underline">Philosophy</a>
-                    <a href="/Ivory/Economics" class="hover:underline">Economics</a>
-                    <a href="/Ivory/Personal" class="hover:underline">Personal</a>
-                    <a href="/Ivory/TBD" class="hover:underline">TBD</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- IVORY / Journal Content -->
-        <section class="min-h-screen flex items-start justify-center pt-6 px-6">
-            <div class="bg-white shadow-lg rounded-xl w-full max-w-4xl p-12 leading-relaxed text-[#3B2F2F] mt-6">
-                <!-- Header -->
-                <h1 class="text-4xl font-serif font-bold mb-6 text-center">Ivory</h1>
-
-                <!-- Your journal content starts here -->
-                <p class="leading-relaxed mb-4">
-                    This is the beginning of my journal space — a written extension of “Curiosity in Motion.” Here I’ll explore ideas, develop theories, map
-                    uncertainties, and refine my long-term intellectual frameworks.
-                </p>
-
-                <p class="leading-relaxed mb-4">
-                    These entries aren’t polished essays — they’re live thoughts, models in progress, research fragments, and the things I’m thinking through in
-                    real time.
-                </p>
-
-                <hr class="my-8 border-t-2 border-[#3B2F2F]/30" />
-
-                <p class="leading-relaxed italic mb-6">(You can delete all this text and start writing your real entries.)</p>
-
-                <!-- Space for future entries -->
-                <div class="mt-10">
-                    <h2 class="text-2xl font-bold mb-4">Entries</h2>
-                    <p>No entries yet. Start writing above when ready.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="bg-[#3b2f2f] text-gray-100 py-6 mt-auto">
-            <div class="max-w-6xl mx-auto px-6 text-center">
-                &copy; {year} Graham Tomori. All rights reserved.
-            </div>
-        </footer>
-    </body>
-</html>
+<!-- Footer -->
+<footer class="bg-[#3b2f2f] text-gray-100 py-6 mt-auto">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+        &copy; {year} Graham Tomori. All rights reserved.
+    </div>
+</footer>
