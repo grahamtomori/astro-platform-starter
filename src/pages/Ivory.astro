@@ -9,7 +9,6 @@ const year = new Date().getFullYear();
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Ivory | Graham Tomori</title>
 
-        <!-- Handwritten Signature Font -->
         <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet" />
     </head>
 
@@ -18,7 +17,7 @@ const year = new Date().getFullYear();
         <nav class="fixed top-0 left-0 w-full bg-[#3b2f2f] shadow-md z-50">
             <div class="flex justify-between items-center text-white w-full pl-3">
                 <div class="flex items-center space-x-3">
-                    <img src="/images/stretched-globe-csa-images.png" alt="Globe Logo" class="h-16 w-auto object-contain relative top-0.5" />
+                    <img src="/images/stretched-globe-csa-images.png" class="h-16 w-auto object-contain" />
                     <div class="flex flex-col justify-center">
                         <span class="text-xl font-bold text-gray-100">Graham Tomori</span>
                         <span class="text-sm italic text-gray-300">Curiosity in Motion</span>
@@ -36,7 +35,7 @@ const year = new Date().getFullYear();
             </div>
         </nav>
 
-        <!-- Category Tabs Strip -->
+        <!-- Category Tabs -->
         <div class="flex justify-center pt-36 px-6 z-40">
             <div class="bg-white rounded-xl w-full max-w-4xl shadow-sm py-3">
                 <div class="flex justify-center space-x-10 text-[#3B2F2F] text-lg font-semibold">
@@ -47,13 +46,13 @@ const year = new Date().getFullYear();
             </div>
         </div>
 
-        <!-- IVORY / Main Container -->
+        <!-- Main Container -->
         <section class="min-h-screen flex items-start justify-center pt-0.1 px-6 pb-24">
             <div class="bg-white shadow-lg rounded-xl w-full max-w-4xl p-12 leading-relaxed text-[#3B2F2F] mt-6">
-                <!-- Header -->
+                <!-- Ivory Header -->
                 <h1 class="text-4xl font-serif font-bold mb-6 text-center">Ivory</h1>
 
-                <!-- Intro -->
+                <!-- Intro Paragraph -->
                 <p class="leading-relaxed mb-4">
                     This is the beginning of my journal space. Here I'll be displaying the process of my thinking as I develop my future intellectual
                     frameworks. A lot of this will be based off personal experiences, and academic reasearch, but will be backed up by sufficient arguments and
@@ -63,38 +62,29 @@ const year = new Date().getFullYear();
                 <!-- Signature -->
                 <p class="mt-6 text-2xl text-[#3B2F2F]" style="font-family: 'Signature', cursive;">Graham</p>
 
-                <!-- Divider -->
                 <hr class="mt-6 mb-10 border-t-2 border-[#3B2F2F]/30" />
 
-                <!-- Highlights Header -->
+                <!-- Highlights Section -->
                 <h2 class="text-3xl font-serif font-bold text-center mb-6">Highlights</h2>
                 <p class="text-center leading-relaxed mb-6 text-lg">This will be a showcase of my best work under Ivory.</p>
 
                 <p class="text-center text-xl tracking-widest my-6 text-[#3B2F2F]/70">* * * * *</p>
 
-                <!-- SCROLLABLE GOOGLE-DOCS STYLE PAGE -->
+                <!-- SCROLLABLE PAGE -->
                 <div
                     class="bg-white shadow-lg rounded-xl mx-auto"
-                    style="
-                        width: 816px;          
-                        height: 1056px;        
-                        overflow-y: scroll;
-                        padding: 60px;
-                        border: 1px solid rgba(0,0,0,0.15);
-                     "
+                    style="width: 816px; height: 1056px; overflow-y: scroll; padding: 60px; border: 1px solid rgba(0,0,0,0.15);"
                 >
                     <p class="text-center leading-relaxed mb-6 text-lg">Highlighted Essay's will go here</p>
                 </div>
 
-                <!-- Bottom Divider -->
                 <hr class="mt-12 mb-4 border-t-2 border-[#3B2F2F]/30" />
             </div>
         </section>
 
-        <!-- Footer -->
         <footer class="bg-[#3b2f2f] text-gray-100 py-6 mt-auto">
             <div class="max-w-6xl mx-auto px-6 text-center">
-                &copy; {year} Graham Tomori. All rights reserved.
+                © {year} Graham Tomori. All rights reserved.
             </div>
         </footer>
     </body>
