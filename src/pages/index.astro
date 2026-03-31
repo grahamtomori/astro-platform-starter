@@ -268,17 +268,12 @@ const year = new Date().getFullYear();
 
         let rotation = 0;
         let locked = false;
-        let mouseOver = false;
         let accumulator = 0;
 
-        scene.addEventListener('mouseenter', () => {
-            mouseOver = true;
-            accumulator = 0;
-        });
-        scene.addEventListener('mouseleave', () => {
-            mouseOver = false;
-            accumulator = 0;
-        });
+        function isOverScene(e) {
+            const rect = scene.getBoundingClientRect();
+            return e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom;
+        }
 
         function getActiveIndex() {
             return (((rotation / 90) % PANEL_COUNT) + PANEL_COUNT) % PANEL_COUNT;
@@ -294,7 +289,7 @@ const year = new Date().getFullYear();
         window.addEventListener(
             'wheel',
             (e) => {
-                if (!mouseOver) return;
+                if (!isOverScene(e)) return;
                 e.preventDefault();
                 if (locked) return;
 
