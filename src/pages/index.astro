@@ -281,11 +281,11 @@ const year = new Date().getFullYear();
         });
 
         function getActiveIndex() {
-            return (((-rotation / 90) % PANEL_COUNT) + PANEL_COUNT) % PANEL_COUNT;
+            return (((rotation / 90) % PANEL_COUNT) + PANEL_COUNT) % PANEL_COUNT;
         }
 
         function step(dir) {
-            rotation -= dir * 90;
+            rotation += dir * 90;
             drum.style.transform = `rotateX(${rotation}deg)`;
             const active = getActiveIndex();
             dots.forEach((d, i) => d.classList.toggle('active', i === active));
@@ -322,7 +322,7 @@ const year = new Date().getFullYear();
                 if (diff < -2) diff += 4;
                 if (diff === 0) return;
                 locked = true;
-                rotation -= diff * 90;
+                rotation += diff * 90;
                 drum.style.transform = `rotateX(${rotation}deg)`;
                 dots.forEach((d, j) => d.classList.toggle('active', j === i));
                 setTimeout(() => {
