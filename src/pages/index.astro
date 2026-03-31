@@ -9,19 +9,25 @@ const year = new Date().getFullYear();
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Graham Tomori</title>
         <style>
+            .carousel-wrapper {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
             .carousel-scene {
-                width: 100%;
+                width: 820px;
                 height: 500px;
-                perspective: 1200px;
+                perspective: 1400px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                overflow: hidden;
+                cursor: default;
             }
 
             .carousel-drum {
-                width: 860px;
-                height: 420px;
+                width: 820px;
+                height: 500px;
                 position: relative;
                 transform-style: preserve-3d;
                 transition: transform 0.75s cubic-bezier(0.77, 0, 0.18, 1);
@@ -29,30 +35,32 @@ const year = new Date().getFullYear();
 
             .drum-panel {
                 position: absolute;
-                width: 860px;
-                height: 420px;
-                border-radius: 20px;
+                width: 820px;
+                height: 500px;
+                border-radius: 36px;
                 backface-visibility: hidden;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                padding: 48px 56px;
+                padding: 60px 72px;
                 box-sizing: border-box;
                 background: #e6ddd1;
-                box-shadow: 0 8px 40px rgba(59, 47, 47, 0.13);
+                box-shadow:
+                    0 20px 60px rgba(59, 47, 47, 0.25),
+                    0 6px 20px rgba(59, 47, 47, 0.12);
             }
 
             .drum-panel:nth-child(1) {
-                transform: rotateX(0deg) translateZ(260px);
+                transform: rotateX(0deg) translateZ(250px);
             }
             .drum-panel:nth-child(2) {
-                transform: rotateX(90deg) translateZ(260px);
+                transform: rotateX(90deg) translateZ(250px);
             }
             .drum-panel:nth-child(3) {
-                transform: rotateX(180deg) translateZ(260px);
+                transform: rotateX(180deg) translateZ(250px);
             }
             .drum-panel:nth-child(4) {
-                transform: rotateX(270deg) translateZ(260px);
+                transform: rotateX(270deg) translateZ(250px);
             }
 
             .panel-label {
@@ -60,29 +68,29 @@ const year = new Date().getFullYear();
                 letter-spacing: 0.18em;
                 text-transform: uppercase;
                 color: #8a7060;
-                margin-bottom: 12px;
+                margin-bottom: 14px;
                 font-family: sans-serif;
             }
 
             .panel-title {
-                font-size: 2rem;
+                font-size: 2.2rem;
                 font-family: Georgia, serif;
                 color: #3b2f2f;
-                margin-bottom: 16px;
+                margin-bottom: 18px;
                 font-weight: bold;
             }
 
             .panel-body {
                 font-size: 1.05rem;
                 color: #3b2f2f;
-                line-height: 1.7;
-                max-width: 600px;
+                line-height: 1.75;
+                max-width: 580px;
             }
 
             .panel-link {
                 display: inline-block;
-                margin-top: 24px;
-                padding: 10px 24px;
+                margin-top: 28px;
+                padding: 10px 26px;
                 background: #3b2f2f;
                 color: #f2efe7;
                 border-radius: 8px;
@@ -99,7 +107,7 @@ const year = new Date().getFullYear();
                 display: flex;
                 justify-content: center;
                 gap: 10px;
-                margin-top: 24px;
+                margin-top: 28px;
             }
 
             .dot {
@@ -153,7 +161,7 @@ const year = new Date().getFullYear();
             </div>
         </section>
 
-        <!-- Literature Section — untouched -->
+        <!-- Literature Section -->
         <section id="readings" class="py-24 bg-[#ece6dd]">
             <div class="max-w-5xl mx-auto px-6">
                 <h2 class="text-3xl font-serif font-bold mb-2 text-[#3b2f2f]">Literature -</h2>
@@ -189,8 +197,8 @@ const year = new Date().getFullYear();
 
         <!-- 3D Drum Carousel -->
         <section id="drum-section" class="py-24 bg-[#d9c8b3]">
-            <div class="max-w-5xl mx-auto px-6">
-                <div class="carousel-scene">
+            <div class="carousel-wrapper">
+                <div class="carousel-scene" id="carousel-scene">
                     <div class="carousel-drum" id="drum">
                         <!-- Panel 1: About -->
                         <div class="drum-panel">
@@ -239,7 +247,6 @@ const year = new Date().getFullYear();
                     </div>
                 </div>
 
-                <!-- Dots -->
                 <div class="carousel-dots" id="dots">
                     <div class="dot active" data-index="0"></div>
                     <div class="dot" data-index="1"></div>
@@ -260,36 +267,54 @@ const year = new Date().getFullYear();
     <script>
         const drum = document.getElementById('drum');
         const dots = document.querySelectorAll('.dot');
-        const section = document.getElementById('drum-section');
+        const scene = document.getElementById('carousel-scene');
         const PANEL_COUNT = 4;
-        let current = 0;
-        let locked = false;
 
-        function rotateTo(index) {
-            current = ((index % PANEL_COUNT) + PANEL_COUNT) % PANEL_COUNT;
-            drum.style.transform = `rotateX(${current * -90}deg)`;
-            dots.forEach((d, i) => d.classList.toggle('active', i === current));
+        let rotation = 0; // raw unbounded degrees — never resets, so no jump
+        let locked = false;
+        let mouseOver = false;
+
+        scene.addEventListener('mouseenter', () => (mouseOver = true));
+        scene.addEventListener('mouseleave', () => (mouseOver = false));
+
+        function getActiveIndex() {
+            return (((-rotation / 90) % PANEL_COUNT) + PANEL_COUNT) % PANEL_COUNT;
         }
 
-        // Scroll trigger — only fires when carousel is in viewport
+        function rotateDrum(dir) {
+            // dir: +1 = scroll down (1→2→3→4), -1 = scroll up (1→4→3→2)
+            rotation -= dir * 90;
+            drum.style.transform = `rotateX(${rotation}deg)`;
+            const active = getActiveIndex();
+            dots.forEach((d, i) => d.classList.toggle('active', i === active));
+        }
+
         window.addEventListener(
             'wheel',
             (e) => {
-                const rect = section.getBoundingClientRect();
-                const inView = rect.top < window.innerHeight * 0.6 && rect.bottom > window.innerHeight * 0.4;
-                if (!inView || locked) return;
-
+                if (!mouseOver || locked) return;
                 e.preventDefault();
                 locked = true;
-                rotateTo(e.deltaY > 0 ? current + 1 : current - 1);
+                rotateDrum(e.deltaY > 0 ? 1 : -1);
                 setTimeout(() => (locked = false), 850);
             },
             { passive: false }
         );
 
-        // Dot click navigation
-        dots.forEach((dot) => {
-            dot.addEventListener('click', () => rotateTo(parseInt(dot.dataset.index)));
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                if (locked) return;
+                locked = true;
+                const active = getActiveIndex();
+                let diff = i - active;
+                // take shortest path
+                if (diff > 2) diff -= 4;
+                if (diff < -2) diff += 4;
+                rotation -= diff * 90;
+                drum.style.transform = `rotateX(${rotation}deg)`;
+                dots.forEach((d, j) => d.classList.toggle('active', j === i));
+                setTimeout(() => (locked = false), 850);
+            });
         });
     </script>
 </html>
