@@ -276,7 +276,7 @@ const year = new Date().getFullYear();
         }
 
         function getActiveIndex() {
-            return (((rotation / 90) % PANEL_COUNT) + PANEL_COUNT) % PANEL_COUNT;
+            return (PANEL_COUNT - ((((rotation / 90) % PANEL_COUNT) + PANEL_COUNT) % PANEL_COUNT)) % PANEL_COUNT;
         }
 
         function step(dir) {
@@ -296,7 +296,7 @@ const year = new Date().getFullYear();
                 accumulator += e.deltaY;
 
                 if (Math.abs(accumulator) >= THRESHOLD) {
-                    const dir = accumulator > 0 ? -1 : 1;
+                    const dir = accumulator > 0 ? 1 : -1;
                     accumulator = 0;
                     locked = true;
                     step(dir);
