@@ -8,13 +8,120 @@ const year = new Date().getFullYear();
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Graham Tomori</title>
+        <style>
+            .carousel-scene {
+                width: 100%;
+                height: 500px;
+                perspective: 1200px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+            }
+
+            .carousel-drum {
+                width: 860px;
+                height: 420px;
+                position: relative;
+                transform-style: preserve-3d;
+                transition: transform 0.75s cubic-bezier(0.77, 0, 0.18, 1);
+            }
+
+            .drum-panel {
+                position: absolute;
+                width: 860px;
+                height: 420px;
+                border-radius: 20px;
+                backface-visibility: hidden;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding: 48px 56px;
+                box-sizing: border-box;
+                background: #e6ddd1;
+                box-shadow: 0 8px 40px rgba(59, 47, 47, 0.13);
+            }
+
+            .drum-panel:nth-child(1) {
+                transform: rotateX(0deg) translateZ(260px);
+            }
+            .drum-panel:nth-child(2) {
+                transform: rotateX(90deg) translateZ(260px);
+            }
+            .drum-panel:nth-child(3) {
+                transform: rotateX(180deg) translateZ(260px);
+            }
+            .drum-panel:nth-child(4) {
+                transform: rotateX(270deg) translateZ(260px);
+            }
+
+            .panel-label {
+                font-size: 0.75rem;
+                letter-spacing: 0.18em;
+                text-transform: uppercase;
+                color: #8a7060;
+                margin-bottom: 12px;
+                font-family: sans-serif;
+            }
+
+            .panel-title {
+                font-size: 2rem;
+                font-family: Georgia, serif;
+                color: #3b2f2f;
+                margin-bottom: 16px;
+                font-weight: bold;
+            }
+
+            .panel-body {
+                font-size: 1.05rem;
+                color: #3b2f2f;
+                line-height: 1.7;
+                max-width: 600px;
+            }
+
+            .panel-link {
+                display: inline-block;
+                margin-top: 24px;
+                padding: 10px 24px;
+                background: #3b2f2f;
+                color: #f2efe7;
+                border-radius: 8px;
+                text-decoration: none;
+                font-size: 0.95rem;
+                transition: background 0.2s;
+            }
+
+            .panel-link:hover {
+                background: #5c4a4a;
+            }
+
+            .carousel-dots {
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+                margin-top: 24px;
+            }
+
+            .dot {
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background: #c4b78b;
+                opacity: 0.4;
+                transition: opacity 0.3s;
+                cursor: pointer;
+            }
+
+            .dot.active {
+                opacity: 1;
+            }
+        </style>
     </head>
 
     <body class="font-sans bg-gray-100">
         <!-- Navbar -->
         <nav class="fixed top-0 left-0 w-full bg-[#3b2f2f] shadow-md z-50">
             <div class="flex justify-between items-center text-white w-full pl-3">
-                <!-- Logo + Name + Tagline -->
                 <div class="flex items-center space-x-3">
                     <img src="/images/stretched-globe-csa-images.png" alt="Globe Logo" class="h-16 w-auto object-contain relative top-0.5" />
                     <div class="flex flex-col justify-center">
@@ -22,8 +129,6 @@ const year = new Date().getFullYear();
                         <span class="text-sm italic text-gray-300">Curiosity in Motion</span>
                     </div>
                 </div>
-
-                <!-- Links -->
                 <div class="space-x-6 mr-6">
                     <a href="/about" class="hover:text-[#c4b78b]">About</a>
                     <a href="/projects" class="hover:text-[#c4b78b]">Projects</a>
@@ -39,57 +144,16 @@ const year = new Date().getFullYear();
             <div class="bg-[#3b2f2f] bg-opacity-75 p-11.5 rounded-3xl text-center mr-24 mt-24 max-w-lg">
                 <h1 class="text-5xl font-serif text-[#e0d8c3] mb-6">Welcome</h1>
                 <p class="text-lg text-[#dcd2c0] leading-relaxed">
-                    My name is Graham Tomori, an aspiring consultant for governments and institutions across the world, and a Freshman at
+                    My name is Graham Tomori. I study Political Science and Economics at
                     <a href="https://www.butler.edu/arts-sciences/political-science/" class="italic" target="_blank" rel="noopener noreferrer">
-                        Butler University
+                        Butler University,
                     </a>
-                    studying Political Science + Economics.
+                    with a focus on grand strategy, political theory, and international order.
                 </p>
             </div>
         </section>
 
-        <!-- About Section -->
-        <section id="about" class="py-24 bg-[#d9c8b3]">
-            <div class="max-w-4xl mx-auto px-6">
-                <h2 class="text-3xl font-serif font-bold mb-6 text-[#3b2f2f]">About Me</h2>
-                <p class="text-lg leading-relaxed text-[#3b2f2f]">
-                    Hi, I’m Graham Tomori, a Freshman at
-                    <a href="https://www.butler.edu/lacy-business/undergraduate-programs/international-business/" class="italic underline">
-                        Butler University</a
-                    >
-                    majoring in Political Science and minoring in Economics. I am passionate about geopolitics, economics, and building strategies to rejuvenate
-                    developing nations. For more background on me, check out my
-                    <a href="/about" class="italic underline"> About</a>
-                    Page.
-                </p>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects" class="py-24 bg-[#f2efe7] rounded-2xl shadow-md">
-            <div class="max-w-5xl mx-auto px-6">
-                <h2 class="text-3xl font-serif font-bold mb-6 text-[#3b2f2f]">Projects</h2>
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="p-6 bg-[#e6ddd1] rounded-xl shadow hover:shadow-lg transition">
-                        <strong>MOCKIMFPROJECT</strong> – Social Media account spreading interesting ideas in global development.
-                    </div>
-                    <div class="p-6 bg-[#e6ddd1] rounded-xl shadow hover:shadow-lg transition">
-                        <strong>Personal Website</strong> – Built with Astro + Tailwind + VSCode for professional presentation.
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Resume Section -->
-        <section id="resume" class="py-24 bg-[#d9c8b3]">
-            <div class="max-w-4xl mx-auto px-6 text-center">
-                <h2 class="text-3xl font-serif font-bold mb-6 text-[#3b2f2f]">Resume</h2>
-                <p class="text-lg text-[#3b2f2f] mb-6">Want to know more about my background, education, and experiences?</p>
-                <a href="/resume" class="px-6 py-3 bg-[#3b2f2f] text-[#f2efe7] rounded-lg shadow hover:bg-[#5c4a4a]"> View Full Resume </a>
-            </div>
-        </section>
-
-        <!-- Readings Section -->
+        <!-- Literature Section — untouched -->
         <section id="readings" class="py-24 bg-[#ece6dd]">
             <div class="max-w-5xl mx-auto px-6">
                 <h2 class="text-3xl font-serif font-bold mb-2 text-[#3b2f2f]">Literature -</h2>
@@ -123,15 +187,65 @@ const year = new Date().getFullYear();
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="py-24 bg-[#7a8465]">
-            <div class="max-w-4xl mx-auto px-6 text-[#f0f0e8]">
-                <h2 class="text-3xl font-serif font-bold mb-6">Contact</h2>
-                <p>
-                    Email:
-                    <a href="mailto:contactgrahamtomori@gmail.com" class="text-[#dcd2c0] hover:underline"> contactgrahamtomori@gmail.com </a>
-                </p>
-                <p>I'll add more here eventually... just want to ensure low spam for now</p>
+        <!-- 3D Drum Carousel -->
+        <section id="drum-section" class="py-24 bg-[#d9c8b3]">
+            <div class="max-w-5xl mx-auto px-6">
+                <div class="carousel-scene">
+                    <div class="carousel-drum" id="drum">
+                        <!-- Panel 1: About -->
+                        <div class="drum-panel">
+                            <span class="panel-label">01 — About</span>
+                            <h2 class="panel-title">Graham Tomori</h2>
+                            <p class="panel-body">
+                                First-year at Butler University studying Political Science and Economics. D1 distance runner. Focused on grand strategy,
+                                political theory, and the architecture of international order.
+                            </p>
+                            <a href="/about" class="panel-link">Read More</a>
+                        </div>
+
+                        <!-- Panel 2: Projects -->
+                        <div class="drum-panel">
+                            <span class="panel-label">02 — Projects</span>
+                            <h2 class="panel-title">Work</h2>
+                            <p class="panel-body">
+                                MOCKIMFPROJECT — a social media account examining ideas in global development and institutional economics. Personal website
+                                built with Astro + Tailwind.
+                            </p>
+                            <a href="/projects" class="panel-link">View Projects</a>
+                        </div>
+
+                        <!-- Panel 3: Resume -->
+                        <div class="drum-panel">
+                            <span class="panel-label">03 — Resume</span>
+                            <h2 class="panel-title">Background</h2>
+                            <p class="panel-body">
+                                Education, competitions, and experience — including first place in the Ayn Rand Institute's Fountainhead Essay Competition,
+                                2024.
+                            </p>
+                            <a href="/resume" class="panel-link">View Resume</a>
+                        </div>
+
+                        <!-- Panel 4: Contact -->
+                        <div class="drum-panel">
+                            <span class="panel-label">04 — Contact</span>
+                            <h2 class="panel-title">Get in Touch</h2>
+                            <p class="panel-body">
+                                Reach me at
+                                <a href="mailto:contactgrahamtomori@gmail.com" style="color:#7a8465; text-decoration:underline;">
+                                    contactgrahamtomori@gmail.com
+                                </a>. I keep this minimal for now.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dots -->
+                <div class="carousel-dots" id="dots">
+                    <div class="dot active" data-index="0"></div>
+                    <div class="dot" data-index="1"></div>
+                    <div class="dot" data-index="2"></div>
+                    <div class="dot" data-index="3"></div>
+                </div>
             </div>
         </section>
     </body>
@@ -142,4 +256,40 @@ const year = new Date().getFullYear();
             &copy; {year} Graham Tomori. All rights reserved.
         </div>
     </footer>
+
+    <script>
+        const drum = document.getElementById('drum');
+        const dots = document.querySelectorAll('.dot');
+        const section = document.getElementById('drum-section');
+        const PANEL_COUNT = 4;
+        let current = 0;
+        let locked = false;
+
+        function rotateTo(index) {
+            current = ((index % PANEL_COUNT) + PANEL_COUNT) % PANEL_COUNT;
+            drum.style.transform = `rotateX(${current * -90}deg)`;
+            dots.forEach((d, i) => d.classList.toggle('active', i === current));
+        }
+
+        // Scroll trigger — only fires when carousel is in viewport
+        window.addEventListener(
+            'wheel',
+            (e) => {
+                const rect = section.getBoundingClientRect();
+                const inView = rect.top < window.innerHeight * 0.6 && rect.bottom > window.innerHeight * 0.4;
+                if (!inView || locked) return;
+
+                e.preventDefault();
+                locked = true;
+                rotateTo(e.deltaY > 0 ? current + 1 : current - 1);
+                setTimeout(() => (locked = false), 850);
+            },
+            { passive: false }
+        );
+
+        // Dot click navigation
+        dots.forEach((dot) => {
+            dot.addEventListener('click', () => rotateTo(parseInt(dot.dataset.index)));
+        });
+    </script>
 </html>
