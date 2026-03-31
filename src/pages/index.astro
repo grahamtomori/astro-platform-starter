@@ -264,7 +264,7 @@ const year = new Date().getFullYear();
         const dots = document.querySelectorAll('.dot');
         const scene = document.getElementById('carousel-scene');
         const PANEL_COUNT = 4;
-        const THRESHOLD = 60; // px of scroll delta needed to trigger one step
+        const THRESHOLD = 20;
 
         let rotation = 0;
         let locked = false;
@@ -285,8 +285,6 @@ const year = new Date().getFullYear();
         }
 
         function step(dir) {
-            // dir +1 = scroll down = panels go 1→2→3→4
-            // dir -1 = scroll up  = panels go 1→4→3→2
             rotation -= dir * 90;
             drum.style.transform = `rotateX(${rotation}deg)`;
             const active = getActiveIndex();
@@ -298,11 +296,7 @@ const year = new Date().getFullYear();
             (e) => {
                 if (!mouseOver) return;
                 e.preventDefault();
-
-                if (locked) {
-                    accumulator = 0;
-                    return;
-                }
+                if (locked) return;
 
                 accumulator += e.deltaY;
 
