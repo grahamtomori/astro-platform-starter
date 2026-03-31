@@ -71,7 +71,6 @@ const year = new Date().getFullYear();
                 margin-bottom: 10px;
                 font-family: sans-serif;
             }
-
             .panel-title {
                 font-size: 1.9rem;
                 font-family: Georgia, serif;
@@ -79,14 +78,12 @@ const year = new Date().getFullYear();
                 margin-bottom: 12px;
                 font-weight: bold;
             }
-
             .panel-body {
                 font-size: 1rem;
                 color: #3b2f2f;
                 line-height: 1.7;
                 max-width: 680px;
             }
-
             .panel-link {
                 display: inline-block;
                 margin-top: 20px;
@@ -98,7 +95,6 @@ const year = new Date().getFullYear();
                 font-size: 0.92rem;
                 transition: background 0.2s;
             }
-
             .panel-link:hover {
                 background: #5c4a4a;
             }
@@ -109,7 +105,6 @@ const year = new Date().getFullYear();
                 gap: 10px;
                 margin-top: 24px;
             }
-
             .dot {
                 width: 8px;
                 height: 8px;
@@ -119,7 +114,6 @@ const year = new Date().getFullYear();
                 transition: opacity 0.3s;
                 cursor: pointer;
             }
-
             .dot.active {
                 opacity: 1;
             }
@@ -259,6 +253,7 @@ const year = new Date().getFullYear();
         </div>
     </footer>
 
+    <!-- ✅ Fixed Drum Carousel Script -->
     <script>
         const drum = document.getElementById('drum');
         const dots = document.querySelectorAll('.dot');
@@ -275,9 +270,9 @@ const year = new Date().getFullYear();
             return e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom;
         }
 
-        // ✅ Updated to match scrolling order 1 → 2 → 3 → 4
+        // ✅ Corrected so scrolling down moves 1 → 2 → 3 → 4 naturally
         function getActiveIndex() {
-            return (((-rotation / 90) % PANEL_COUNT) + PANEL_COUNT) % PANEL_COUNT;
+            return (((rotation / 90) % PANEL_COUNT) + PANEL_COUNT) % PANEL_COUNT;
         }
 
         function step(dir) {
