@@ -267,10 +267,10 @@ const year = new Date().getFullYear();
             const drum = document.getElementById('drum');
             const dots = document.querySelectorAll('.dot');
             const PANEL_COUNT = 4;
-            const THRESHOLD = 25; // how much trackpad scroll before stepping
-
-            let rotation = 0; // current rotation
-            let locked = false; // prevent multiple triggers
+            const THRESHOLD = 25; // scroll delta threshold to trigger one panel
+            let rotation = 0;
+            let locked = false;
+            let accumulator = 0;
 
             function getActiveIndex() {
                 return (((-rotation / 90) % PANEL_COUNT) + PANEL_COUNT) % PANEL_COUNT;
@@ -289,13 +289,12 @@ const year = new Date().getFullYear();
                 updateDotsAndPanels();
             }
 
-            let accumulator = 0;
-
             window.addEventListener(
                 'wheel',
                 (e) => {
                     const rect = drum.getBoundingClientRect();
                     if (e.clientX < rect.left || e.clientX > rect.right || e.clientY < rect.top || e.clientY > rect.bottom) return;
+
                     e.preventDefault();
                     if (locked) return;
 
@@ -308,7 +307,7 @@ const year = new Date().getFullYear();
                         step(dir);
                         setTimeout(() => {
                             locked = false;
-                        }, 500); // smooth lock to avoid overscrolling
+                        }, 400); // lock duration matches CSS transition
                     }
                 },
                 { passive: false }
@@ -325,11 +324,11 @@ const year = new Date().getFullYear();
                     updateDotsAndPanels();
                     setTimeout(() => {
                         locked = false;
-                    }, 500);
+                    }, 400);
                 });
             });
 
-            // Initial update
+            // Initial setup
             updateDotsAndPanels();
         </script>
     </body>
