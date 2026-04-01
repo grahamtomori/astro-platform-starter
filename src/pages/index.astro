@@ -266,28 +266,21 @@ const year = new Date().getFullYear();
         const PANELS = 4;
         const THRESHOLD = 15;
 
-        // current is the panel index: 0=About, 1=Projects, 2=Resume, 3=Contact
         let current = 0;
         let locked = false;
         let accumulator = 0;
 
         function goTo(index) {
             current = ((index % PANELS) + PANELS) % PANELS;
-            // Scroll down = positive rotation on X = panel rolls downward into next
             drum.style.transform = `rotateX(${current * 90}deg)`;
             dots.forEach((d, i) => d.classList.toggle('active', i === current));
         }
 
-        function isOverScene(e) {
-            const r = scene.getBoundingClientRect();
-            return e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom;
-        }
-
-        window.addEventListener(
+        scene.addEventListener(
             'wheel',
             (e) => {
-                if (!isOverScene(e)) return;
                 e.preventDefault();
+                e.stopPropagation();
                 if (locked) return;
 
                 accumulator += e.deltaY;
