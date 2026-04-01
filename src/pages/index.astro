@@ -267,12 +267,14 @@ const year = new Date().getFullYear();
         const THRESHOLD = 15;
 
         let current = 0;
+        let rotation = 0;
         let locked = false;
         let accumulator = 0;
 
-        function goTo(index) {
-            current = ((index % PANELS) + PANELS) % PANELS;
-            drum.style.transform = `rotateX(${current * 90}deg)`;
+        function step(dir) {
+            current = (((current + dir) % PANELS) + PANELS) % PANELS;
+            rotation += dir * 90;
+            drum.style.transform = `rotateX(${rotation}deg)`;
             dots.forEach((d, i) => d.classList.toggle('active', i === current));
         }
 
@@ -289,7 +291,7 @@ const year = new Date().getFullYear();
                     const dir = accumulator > 0 ? 1 : -1;
                     accumulator = 0;
                     locked = true;
-                    goTo(current + dir);
+                    step(dir);
                     setTimeout(() => {
                         locked = false;
                     }, 750);
@@ -302,7 +304,13 @@ const year = new Date().getFullYear();
             dot.addEventListener('click', () => {
                 if (locked || i === current) return;
                 locked = true;
-                goTo(i);
+                let diff = i - current;
+                if (diff > 2) diff -= 4;
+                if (diff < -2) diff += 4;
+                current = i;
+                rotation += diff * 90;
+                drum.style.transform = `rotateX(${rotation}deg)`;
+                dots.forEach((d, j) => d.classList.toggle('active', j === i));
                 setTimeout(() => {
                     locked = false;
                 }, 750);
