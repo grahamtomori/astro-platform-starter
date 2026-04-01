@@ -9,7 +9,6 @@ const year = new Date().getFullYear();
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Graham Tomori</title>
         <style>
-            /* --- Carousel Styles --- */
             .carousel-wrapper {
                 display: flex;
                 flex-direction: column;
@@ -23,7 +22,7 @@ const year = new Date().getFullYear();
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                cursor: grab;
+                cursor: default;
             }
 
             .carousel-drum {
@@ -49,32 +48,19 @@ const year = new Date().getFullYear();
                 box-shadow:
                     0 24px 64px rgba(59, 47, 47, 0.28),
                     0 6px 18px rgba(59, 47, 47, 0.14);
-                transition:
-                    filter 0.5s ease,
-                    transform 0.7s ease;
-            }
-
-            /* Depth blur & lighting */
-            .drum-panel.active {
-                filter: brightness(1) blur(0px);
-                z-index: 10;
-            }
-            .drum-panel:not(.active) {
-                filter: brightness(0.85) blur(1px);
-                z-index: 1;
             }
 
             .drum-panel:nth-child(1) {
                 transform: rotateX(0deg) translateZ(160px);
             }
             .drum-panel:nth-child(2) {
-                transform: rotateX(90deg) translateZ(160px);
+                transform: rotateX(-90deg) translateZ(160px);
             }
             .drum-panel:nth-child(3) {
-                transform: rotateX(180deg) translateZ(160px);
+                transform: rotateX(-180deg) translateZ(160px);
             }
             .drum-panel:nth-child(4) {
-                transform: rotateX(270deg) translateZ(160px);
+                transform: rotateX(-270deg) translateZ(160px);
             }
 
             .panel-label {
@@ -85,6 +71,7 @@ const year = new Date().getFullYear();
                 margin-bottom: 10px;
                 font-family: sans-serif;
             }
+
             .panel-title {
                 font-size: 1.9rem;
                 font-family: Georgia, serif;
@@ -92,12 +79,14 @@ const year = new Date().getFullYear();
                 margin-bottom: 12px;
                 font-weight: bold;
             }
+
             .panel-body {
                 font-size: 1rem;
                 color: #3b2f2f;
                 line-height: 1.7;
                 max-width: 680px;
             }
+
             .panel-link {
                 display: inline-block;
                 margin-top: 20px;
@@ -109,6 +98,7 @@ const year = new Date().getFullYear();
                 font-size: 0.92rem;
                 transition: background 0.2s;
             }
+
             .panel-link:hover {
                 background: #5c4a4a;
             }
@@ -119,6 +109,7 @@ const year = new Date().getFullYear();
                 gap: 10px;
                 margin-top: 24px;
             }
+
             .dot {
                 width: 8px;
                 height: 8px;
@@ -128,6 +119,7 @@ const year = new Date().getFullYear();
                 transition: opacity 0.3s;
                 cursor: pointer;
             }
+
             .dot.active {
                 opacity: 1;
             }
@@ -217,6 +209,7 @@ const year = new Date().getFullYear();
                             </p>
                             <a href="/about" class="panel-link">Read More</a>
                         </div>
+
                         <div class="drum-panel">
                             <span class="panel-label">02 — Projects</span>
                             <h2 class="panel-title">Work</h2>
@@ -226,6 +219,7 @@ const year = new Date().getFullYear();
                             </p>
                             <a href="/projects" class="panel-link">View Projects</a>
                         </div>
+
                         <div class="drum-panel">
                             <span class="panel-label">03 — Resume</span>
                             <h2 class="panel-title">Background</h2>
@@ -235,6 +229,7 @@ const year = new Date().getFullYear();
                             </p>
                             <a href="/resume" class="panel-link">View Resume</a>
                         </div>
+
                         <div class="drum-panel">
                             <span class="panel-label">04 — Contact</span>
                             <h2 class="panel-title">Get in Touch</h2>
@@ -256,80 +251,69 @@ const year = new Date().getFullYear();
                 </div>
             </div>
         </section>
+    </body>
 
-        <footer class="bg-[#3b2f2f] text-gray-100 py-6">
-            <div class="max-w-6xl mx-auto px-6 text-center">
-                &copy; {year} Graham Tomori. All rights reserved.
-            </div>
-        </footer>
+    <footer class="bg-[#3b2f2f] text-gray-100 py-6">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            &copy; {year} Graham Tomori. All rights reserved.
+        </div>
+    </footer>
 
-        <script>
-            const drum = document.getElementById('drum');
-            const dots = document.querySelectorAll('.dot');
-            const PANEL_COUNT = 4;
-            const THRESHOLD = 25; // scroll delta threshold to trigger one panel
-            let rotation = 0;
-            let locked = false;
-            let accumulator = 0;
+    <script>
+        const drum = document.getElementById('drum');
+        const scene = document.getElementById('carousel-scene');
+        const dots = document.querySelectorAll('.dot');
+        const PANELS = 4;
+        const THRESHOLD = 15;
 
-            function getActiveIndex() {
-                return (((-rotation / 90) % PANEL_COUNT) + PANEL_COUNT) % PANEL_COUNT;
-            }
+        // current is the panel index: 0=About, 1=Projects, 2=Resume, 3=Contact
+        let current = 0;
+        let locked = false;
+        let accumulator = 0;
 
-            function updateDotsAndPanels() {
-                const active = getActiveIndex();
-                dots.forEach((d, i) => d.classList.toggle('active', i === active));
-                const panels = drum.querySelectorAll('.drum-panel');
-                panels.forEach((p, i) => p.classList.toggle('active', i === active));
-            }
+        function goTo(index) {
+            current = ((index % PANELS) + PANELS) % PANELS;
+            // Scroll down = positive rotation on X = panel rolls downward into next
+            drum.style.transform = `rotateX(${current * 90}deg)`;
+            dots.forEach((d, i) => d.classList.toggle('active', i === current));
+        }
 
-            function step(dir) {
-                rotation += dir * 90;
-                drum.style.transform = `rotateX(${rotation}deg)`;
-                updateDotsAndPanels();
-            }
+        function isOverScene(e) {
+            const r = scene.getBoundingClientRect();
+            return e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom;
+        }
 
-            window.addEventListener(
-                'wheel',
-                (e) => {
-                    const rect = drum.getBoundingClientRect();
-                    if (e.clientX < rect.left || e.clientX > rect.right || e.clientY < rect.top || e.clientY > rect.bottom) return;
+        window.addEventListener(
+            'wheel',
+            (e) => {
+                if (!isOverScene(e)) return;
+                e.preventDefault();
+                if (locked) return;
 
-                    e.preventDefault();
-                    if (locked) return;
+                accumulator += e.deltaY;
 
-                    accumulator += e.deltaY;
-
-                    if (Math.abs(accumulator) >= THRESHOLD) {
-                        const dir = accumulator > 0 ? 1 : -1;
-                        accumulator = 0;
-                        locked = true;
-                        step(dir);
-                        setTimeout(() => {
-                            locked = false;
-                        }, 400); // lock duration matches CSS transition
-                    }
-                },
-                { passive: false }
-            );
-
-            dots.forEach((dot, i) => {
-                dot.addEventListener('click', () => {
-                    if (locked) return;
-                    const diff = i - getActiveIndex();
-                    if (diff === 0) return;
+                if (Math.abs(accumulator) >= THRESHOLD) {
+                    const dir = accumulator > 0 ? 1 : -1;
+                    accumulator = 0;
                     locked = true;
-                    rotation += diff * 90;
-                    drum.style.transform = `rotateX(${rotation}deg)`;
-                    updateDotsAndPanels();
+                    goTo(current + dir);
                     setTimeout(() => {
                         locked = false;
-                    }, 400);
-                });
-            });
+                    }, 750);
+                }
+            },
+            { passive: false }
+        );
 
-            // Initial setup
-            updateDotsAndPanels();
-        </script>
-    </body>
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                if (locked || i === current) return;
+                locked = true;
+                goTo(i);
+                setTimeout(() => {
+                    locked = false;
+                }, 750);
+            });
+        });
+    </script>
 </html>
