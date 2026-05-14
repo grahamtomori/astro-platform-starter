@@ -8,6 +8,14 @@ const year = new Date().getFullYear();
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Resume | Graham Tomori</title>
+        <style>
+            @media print {
+                nav, footer { display: none !important; }
+                body { background: white !important; }
+                section { padding-top: 0 !important; }
+                .shadow-lg { box-shadow: none !important; }
+            }
+        </style>
     </head>
 
     <body class="font-sans bg-[#3B2F2F] text-gray-100">
@@ -27,7 +35,6 @@ const year = new Date().getFullYear();
                 <div class="space-x-6 mr-6">
                     <a href="/" class="hover:text-[#c4b78b]">Home</a>
                     <a href="/about" class="hover:text-[#c4b78b]">About</a>
-                    <a href="/projects" class="hover:text-[#c4b78b]">Projects</a>
                     <a href="/Ivory" class="hover:text-[#c4b78b]">Ivory</a>
                     <a href="/resume" class="hover:text-[#c4b78b] font-bold">Resume</a>
                     <a href="/contact" class="hover:text-[#c4b78b]">Contact</a>
@@ -38,6 +45,13 @@ const year = new Date().getFullYear();
         <!-- Resume Section -->
         <section class="min-h-screen flex items-center justify-center pt-32 px-6">
             <div class="bg-white shadow-lg rounded-xl w-full max-w-4xl p-12 leading-relaxed text-[#3B2F2F]">
+                <!-- Download Button -->
+                <div class="flex justify-end mb-4 print:hidden">
+                    <button onclick="window.print()" class="px-5 py-2 bg-[#3b2f2f] text-white rounded-lg text-sm hover:bg-[#5c4a4a] transition">
+                        Download PDF
+                    </button>
+                </div>
+
                 <!-- Header -->
                 <h1 class="text-4xl font-serif font-bold mb-2 text-center text-[#3B2F2F]">Graham Tomori</h1>
                 <p class="text-center mb-6">
