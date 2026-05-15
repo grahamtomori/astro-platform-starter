@@ -2,17 +2,34 @@
 import '../styles/global.css';
 const year = new Date().getFullYear();
 
-const latinNames = [
-    "De Natura Rerum",      "Cogito Ergo Sum",       "Vox Populi Vox Dei",
-    "Alea Iacta Est",       "In Medias Res",          "Sine Qua Non",
-    "Tabula Rasa",          "Ad Astra Per Aspera",    "Carpe Diem",
-    "Dum Spiro Spero",      "Et Tu Brute",            "Fiat Lux",
-    "Gloria Mundi",         "Homo Homini Lupus",      "In Vino Veritas",
-    "Labor Omnia Vincit",   "Magna Carta",            "Nil Desperandum",
-    "Omnia Vincit Amor",    "Per Aspera Ad Astra",    "Quid Pro Quo",
-    "Res Ipsa Loquitur",    "Semper Fidelis",         "Tempus Fugit",
-    "Ultima Ratio Regum",   "Veritas Lux Mea",        "Virtus Et Honor",
-    "Vive Ut Vivas",        "Vox Clamantis",          "Dum Vivimus Vivamus"
+const sections = [
+    {
+        title: "Philosophy",
+        names: [
+            "De Natura Rerum", "Cogito Ergo Sum", "Vox Populi Vox Dei",
+            "Alea Iacta Est",  "In Medias Res",   "Sine Qua Non",
+            "Tabula Rasa",     "Ad Astra Per Aspera", "Carpe Diem", "Dum Spiro Spero"
+        ],
+        startPage: 1,
+    },
+    {
+        title: "Political",
+        names: [
+            "Et Tu Brute",       "Fiat Lux",          "Gloria Mundi",
+            "Homo Homini Lupus", "In Vino Veritas",    "Labor Omnia Vincit",
+            "Magna Carta",       "Nil Desperandum",    "Omnia Vincit Amor", "Per Aspera Ad Astra"
+        ],
+        startPage: 11,
+    },
+    {
+        title: "Personal",
+        names: [
+            "Quid Pro Quo",      "Res Ipsa Loquitur", "Semper Fidelis",
+            "Tempus Fugit",      "Ultima Ratio Regum", "Veritas Lux Mea",
+            "Virtus Et Honor",   "Vive Ut Vivas",      "Vox Clamantis", "Dum Vivimus Vivamus"
+        ],
+        startPage: 21,
+    },
 ];
 ---
 
@@ -44,21 +61,8 @@ const latinNames = [
             </div>
         </nav>
 
-        <!-- Category Tabs -->
-        <div class="flex justify-center pt-36 px-6 z-40">
-            <div class="bg-white rounded-xl w-full max-w-4xl shadow-sm py-4">
-                <div class="w-full text-center mb-3"><a href="/Ivory" class="text-2xl font-bold" style="color:#2c4a2c; letter-spacing:0.2em; padding-left:0.2em;">IVORY</a></div>
-                <hr class="border-t border-[#3B2F2F]/20 mx-8 mb-3" />
-                <div class="flex justify-center space-x-10 text-[#3B2F2F] text-lg font-semibold" style="margin-left:-0.9rem;">
-                    <a href="/Philosophy" class="hover:underline">Philosophy</a>
-                    <a href="/Political" class="hover:underline">Political</a>
-                    <a href="/Personal" class="hover:underline">Personal</a>
-                </div>
-            </div>
-        </div>
-
         <!-- Main Container -->
-        <section class="min-h-screen flex items-start justify-center pt-0.1 px-6 pb-24">
+        <section class="min-h-screen flex items-start justify-center pt-28 px-6 pb-24">
             <div class="bg-white shadow-lg rounded-xl w-full max-w-4xl p-12 leading-relaxed text-[#3B2F2F] mt-6">
                 <!-- Header -->
                 <h1 class="text-4xl font-serif font-bold mb-6 text-center">IVORY</h1>
@@ -76,46 +80,36 @@ const latinNames = [
                 </div>
 
                 <!-- Divider -->
-                <hr class="mt-6 mb-10 border-t-2 border-[#3B2F2F]/30" />
-
-                <!-- Highlights Header -->
-                <h2 class="text-3xl font-serif font-bold text-center mb-4">Highlights</h2>
-
-                <p class="text-center text-xl tracking-widest my-4 text-[#3B2F2F]/70">* * * * *</p>
+                <hr class="mt-6 mb-8 border-t-2 border-[#3B2F2F]/30" />
 
                 <!-- Scrollable Pages Container -->
                 <div
                     id="ivory-pages"
                     style="width:816px; height:720px; overflow-y:scroll; background:#ede8e0; border:1px solid rgba(0,0,0,0.15); border-radius:12px; padding:20px; margin:0 auto; box-sizing:border-box;"
                 >
-                    <!-- Table of Contents Page (short) -->
+                    <!-- Table of Contents Page -->
                     <div id="toc-page" style="width:100%; background:white; padding:48px 60px 56px; margin-bottom:20px; box-shadow:0 2px 8px rgba(0,0,0,0.1); box-sizing:border-box;">
-                        <h2 style="text-align:center; color:#2c4a2c; letter-spacing:0.2em; padding-left:0.2em; font-size:1.5rem; font-weight:bold; font-family:Georgia,serif; margin-bottom:32px;">IVORY</h2>
-                        <!-- Two-column ToC -->
-                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px 48px;">
-                            {Array.from({length: 15}, (_, i) => (
-                                <>
-                                    <!-- Left column: entries 1-15 -->
+                        <h2 style="text-align:center; color:#2c4a2c; letter-spacing:0.2em; padding-left:0.2em; font-size:1.5rem; font-weight:bold; font-family:Georgia,serif; margin-bottom:36px;">IVORY</h2>
+
+                        {sections.map((section) => (
+                            <div style="margin-bottom:28px;">
+                                <!-- Chapter header -->
+                                <div style="font-family:Georgia,serif; font-size:0.9rem; font-weight:bold; color:#2c4a2c; letter-spacing:0.08em; text-transform:uppercase; border-bottom:1px solid #c8bfb0; padding-bottom:5px; margin-bottom:10px;">
+                                    {section.title}
+                                </div>
+                                <!-- Chapter entries -->
+                                {section.names.map((name, i) => (
                                     <a
-                                        onclick={`scrollToIvoryPage('page-${i + 1}')`}
-                                        style="display:flex; align-items:baseline; cursor:pointer; text-decoration:none; color:#3B2F2F; gap:4px; font-family:Georgia,serif; font-size:0.82rem;"
+                                        onclick={`scrollToIvoryPage('page-${section.startPage + i}')`}
+                                        style="display:flex; align-items:baseline; cursor:pointer; text-decoration:none; color:#3B2F2F; gap:4px; font-family:Georgia,serif; font-size:0.82rem; margin-bottom:5px; padding-left:16px;"
                                     >
-                                        <span style="white-space:nowrap;">{latinNames[i]}</span>
+                                        <span style="white-space:nowrap;">{name}</span>
                                         <span style="flex:1; border-bottom:1px dashed #aaa; min-width:12px; position:relative; top:-3px;"></span>
-                                        <span style="white-space:nowrap;">{i + 1}</span>
+                                        <span style="white-space:nowrap;">{section.startPage + i}</span>
                                     </a>
-                                    <!-- Right column: entries 16-30 -->
-                                    <a
-                                        onclick={`scrollToIvoryPage('page-${i + 16}')`}
-                                        style="display:flex; align-items:baseline; cursor:pointer; text-decoration:none; color:#3B2F2F; gap:4px; font-family:Georgia,serif; font-size:0.82rem;"
-                                    >
-                                        <span style="white-space:nowrap;">{latinNames[i + 15]}</span>
-                                        <span style="flex:1; border-bottom:1px dashed #aaa; min-width:12px; position:relative; top:-3px;"></span>
-                                        <span style="white-space:nowrap;">{i + 16}</span>
-                                    </a>
-                                </>
-                            ))}
-                        </div>
+                                ))}
+                            </div>
+                        ))}
                     </div>
 
                     <!-- Pages 1–30 -->
