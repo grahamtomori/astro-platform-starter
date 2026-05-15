@@ -158,7 +158,7 @@ const latinNames = [
     }
 
     // Scroll to a specific page within the container
-    function scrollToIvoryPage(pageId) {
+    window.scrollToIvoryPage = function(pageId) {
         const container = document.getElementById('ivory-pages');
         const page = document.getElementById(pageId);
         if (!container || !page) return;
